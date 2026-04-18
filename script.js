@@ -1,4 +1,54 @@
+const EMBED_MESSAGE_TYPE = "mkchess-faq-height";
 const accordion = document.querySelector("[data-accordion]");
+
+const getPageHeight = () =>
+  Math.ceil(
+    Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.offsetHeight,
+      document.body.clientHeight,
+      document.documentElement.clientHeight
+    )
+  );
+
+const postHeightToParent = () => {
+  if (window.parent === window) {
+    return;
+  }
+
+  window.parent.postMessage(
+    {
+      type: EMBED_MESSAGE_TYPE,
+      height: getPageHeight(),
+    },
+    "*"
+  );
+};
+
+const syncEmbedHeight = () => {
+  window.requestAnimationFrame(() => {
+    postHeightToParent();
+    window.setTimeout(postHeightToParent, 180);
+    window.setTimeout(postHeightToParent, 620);
+  });
+};
+
+if ("ResizeObserver" in window) {
+  const resizeObserver = new ResizeObserver(() => {
+    syncEmbedHeight();
+  });
+
+  resizeObserver.observe(document.body);
+}
+
+window.addEventListener("load", syncEmbedHeight);
+window.addEventListener("resize", syncEmbedHeight);
+
+if (document.fonts?.ready) {
+  document.fonts.ready.then(syncEmbedHeight);
+}
 
 if (accordion) {
   const items = Array.from(accordion.querySelectorAll(".faq-item"));
@@ -51,10 +101,12 @@ if (accordion) {
 
       if (isOpen) {
         closeItem(item);
+        syncEmbedHeight();
         return;
       }
 
       openItem(item);
+      syncEmbedHeight();
     });
 
     trigger.addEventListener("keydown", (event) => {
@@ -79,5 +131,8 @@ if (accordion) {
     });
   });
 
-  window.addEventListener("resize", syncOpenItemHeight);
+  window.addEventListener("resize", () => {
+    syncOpenItemHeight();
+    syncEmbedHeight();
+  });
 }
