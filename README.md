@@ -42,7 +42,7 @@ https://2413003.github.io/mkchess-faq-volunteer/
   title="FAQs"
   scrolling="no"
   loading="lazy"
-  style="width:100%; height:640px; border:0; display:block; overflow:hidden; background:transparent;"
+  style="width:100%; height:640px; border:0; display:block; overflow:hidden; background:#ffffff;"
 ></iframe>
 
 <script>

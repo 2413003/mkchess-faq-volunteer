@@ -20,6 +20,7 @@
 html {
   color-scheme: light;
   scroll-behavior: smooth;
+  background: #ffffff;
 }
 
 body {
@@ -39,6 +40,7 @@ select {
 
 .faq-page {
   padding: clamp(1.5rem, 4vw, 3rem);
+  background: #ffffff;
 }
 
 .faq-shell {
@@ -46,6 +48,7 @@ select {
   margin: 0 auto;
   padding: clamp(1.5rem, 3vw, 2.5rem) clamp(0.15rem, 1.25vw, 0.75rem)
     clamp(2rem, 5vw, 4rem);
+  background: #ffffff;
 }
 
 .faq-intro {
