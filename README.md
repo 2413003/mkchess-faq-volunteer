@@ -2,6 +2,12 @@
 
 This is a lightweight, static FAQ section built in plain HTML, CSS, and JavaScript so it can be hosted directly on GitHub Pages and embedded into Carrd.
 
+Live site:
+
+```text
+https://2413003.github.io/mkchess-faq-volunteer/
+```
+
 ## Files
 
 - `index.html` contains the FAQ markup and SEO-friendly FAQ schema.
@@ -17,23 +23,29 @@ This is a lightweight, static FAQ section built in plain HTML, CSS, and JavaScri
 4. Select your main branch and the `/ (root)` folder, then save.
 5. Wait for GitHub Pages to publish your site.
 
-Your live URL will usually look like:
+Your published URL is:
 
 ```text
-https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/
+https://2413003.github.io/mkchess-faq-volunteer/
 ```
 
 ## Embed In Carrd
 
-Use a Carrd `Embed` element with an iframe like this:
+1. In Carrd, add an `Embed` element where you want the FAQ to appear.
+2. Choose `Type: Code`.
+3. Paste this iframe snippet:
 
 ```html
 <iframe
-  src="https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/"
+  src="https://2413003.github.io/mkchess-faq-volunteer/"
   title="Volunteer FAQ"
   style="width:100%; min-height:760px; border:0; background:transparent;"
   loading="lazy"
 ></iframe>
 ```
 
-If you want more room for the open answer panel, increase the iframe height slightly inside Carrd.
+4. Publish your Carrd site.
+
+If the open answers feel cramped, increase `min-height` to `820px` or higher.
+
+If you want the FAQ to sit flush with the page, keep the Carrd embed container at full width and avoid adding extra padding around the iframe.
