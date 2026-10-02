@@ -123,6 +123,10 @@ select {
   animation-delay: 440ms;
 }
 
+.faq-item:nth-child(8) {
+  animation-delay: 500ms;
+}
+
 .faq-heading {
   margin: 0;
 }
